@@ -16,14 +16,24 @@ var questions = [
         answers: "HTML"
     },
     {
-        question: "What is the most complicated development language?", 
+        question: "What is one of the most complicated development language?", 
         choices: ["HTML", "CSS", "JavaScript", "jQuery"],
         answers: "JavaScript"
     },
     {
-        question: "What is the base structure for web design?", 
+        question: "In JavaScript, the block of code that contains repeatable code or used more than once is known as a...?", 
+        choices: ["Block", "Function", "For Loop", "Console"],
+        answers: "Function"
+    },
+    {
+        question: "Which form of web design is used to change the style of a page?", 
         choices: ["HTML", "CSS", "JavaScript", "jQuery"],
-        answers: "HTML"
+        answers: "CSS"
+    },
+    {
+        question: "Who is Luke Skywalker's father?", 
+        choices: ["Count Dooku", "Yoda", "Obi-Wan Kenobi", "Darth Vader"],
+        answers: "Darth Vader"
     }
 ]
 var questionCurrent = 0;
@@ -74,5 +84,5 @@ function userChoice () {
 
 function displayResults () {
     //hide game content div container. Add 1 more div container to dipslay results. Create a button to store high score in local storage.
-    console.log(losses, wins);
+    console.log(wins, losses);
 }
