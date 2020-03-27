@@ -1,5 +1,5 @@
 var buttonEl = document.querySelector("#start");
-var timeElement = document.querySelector("#timer");
+var time ;
 var startContainer = document.getElementById("game-content")
 var questionDisplay = document.getElementById("questions");
 var choice1 = document.getElementById("question1");
@@ -85,4 +85,9 @@ function userChoice () {
 function displayResults () {
     //hide game content div container. Add 1 more div container to dipslay results. Create a button to store high score in local storage.
     console.log(wins, losses);
+}
+
+function submitScore() {
+    localStorage.setItem("score", JSON.stringify(score));
+
 }
