@@ -7,7 +7,6 @@ var choice2 = document.getElementById("question2");
 var choice3 = document.getElementById("question3");
 var choice4 = document.getElementById("question4");
 var results = document.querySelector("#results");
-localStorage.removeItem("quiz");
 var highScore = JSON.parse(localStorage.getItem("quiz")) || [];
 var win = document.getElementById("win");
 var input = document.getElementById("initials");
@@ -16,6 +15,8 @@ var saveBtn = document.getElementById("save");
 var score = 0;
 var wins = 0;
 var losses = 0;
+var counter = 20;
+var questionTimer = " ";
 var questions = [
     {
         question: "What is the base structure for web design?", 
@@ -54,6 +55,7 @@ results.style.display = "none";
 buttonEl.addEventListener("click", function () {
     startContainer.style.display = "block";
     buttonEl.style.display = "none";
+    questionTimer = setInterval(timerDisplay, 1000)
     displayQuestion();
 });
 
@@ -73,6 +75,15 @@ function displayQuestion() {
         choice4.onclick = userChoice;
     
 };
+function timerDisplay() {
+    if (counter > 0) {
+        timer.textContent = counter;
+        counter--;
+    }else {
+        clearInterval(questionTimer);
+        displayResults();
+    }
+}
 
 function userChoice () {
     var currentChoice = this.value 
@@ -94,6 +105,7 @@ function displayResults () {
     //hide game content div container. Add 1 more div container to dipslay results. Create a button to store high score in local storage.
     startContainer.style.display ="none";
     results.style.display = "block";
+    timer.style.display = "none";
     win.textContent = "wins:"+ wins + "losses"+ losses;
     
 
@@ -109,4 +121,8 @@ saveBtn.addEventListener("click", function(){
     }
     highScore.push(score);
     localStorage.setItem("quiz", JSON.stringify(highScore));
+
+    console.log(JSON.parse(localStorage.getItem("quiz")))
+
+    window.location.assign("./score.html");
 })
