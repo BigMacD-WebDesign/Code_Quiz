@@ -87,7 +87,4 @@ function displayResults () {
     console.log(wins, losses);
 }
 
-function submitScore() {
-    localStorage.setItem("score", JSON.stringify(score));
 
-}
