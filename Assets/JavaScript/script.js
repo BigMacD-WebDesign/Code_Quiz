@@ -45,13 +45,11 @@ var questions = [
     }
 ]
 var questionCurrent = 0;
-
-
-
-
 startContainer.style.display = "none";
 results.style.display = "none";
 
+
+// Start Button
 buttonEl.addEventListener("click", function () {
     startContainer.style.display = "block";
     buttonEl.style.display = "none";
@@ -59,6 +57,8 @@ buttonEl.addEventListener("click", function () {
     displayQuestion();
 });
 
+
+// Questions diplayed
 function displayQuestion() {
     questionDisplay.textContent = questions[questionCurrent].question;
     choice1.innerHTML = questions[questionCurrent].choices[0];
@@ -75,6 +75,8 @@ function displayQuestion() {
         choice4.onclick = userChoice;
     
 };
+
+// Timer
 function timerDisplay() {
     if (counter > 0) {
         timer.textContent = counter;
@@ -85,6 +87,7 @@ function timerDisplay() {
     }
 }
 
+// User Chooses answers
 function userChoice () {
     var currentChoice = this.value 
     console.log(currentChoice);
@@ -101,6 +104,7 @@ function userChoice () {
     }
 };
 
+// Results of Quiz:
 function displayResults () {
     //hide game content div container. Add 1 more div container to dipslay results. Create a button to store high score in local storage.
     startContainer.style.display ="none";
@@ -112,6 +116,8 @@ function displayResults () {
 
     console.log(wins, losses);
 }
+
+//  Save button:
 
 saveBtn.addEventListener("click", function(){
     var userInitials = initials.value
